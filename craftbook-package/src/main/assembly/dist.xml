@@ -13,53 +13,53 @@
   </formats>
 
   <files>
-<!--    <file>-->
+    <file>
 <!--
       <source>${project.build.directory}/${artifactId}-${project.version}.jar</source>
 -->
-<!--      <source>craftbook-common/target/craftbook-common-0.0.0-SNAPSHOT.jar</source>
+      <source>../craftbook-common/target/craftbook-common-0.0.0-SNAPSHOT.jar</source>
       <destName>CraftBook.jar</destName>
       <outputDirectory>/</outputDirectory>
       <filtered>false</filtered>
     </file>
 
     <file>
-      <source>craftbook-circuits/target/craftbook-circuits-0.0.0-SNAPSHOT.jar</source>
+      <source>../craftbook-circuits/target/craftbook-circuits-0.0.0-SNAPSHOT.jar</source>
       <destName>CraftBookCircuits.jar</destName>
       <outputDirectory>/</outputDirectory>
       <filtered>false</filtered>
     </file>
 
     <file>
-      <source>craftbook-mechanisms/target/craftbook-mechanisms-0.0.0-SNAPSHOT.jar</source>
+      <source>../craftbook-mechanisms/target/craftbook-mechanisms-0.0.0-SNAPSHOT.jar</source>
       <destName>CraftBookMechanisms.jar</destName>
       <outputDirectory>/</outputDirectory>
       <filtered>false</filtered>
     </file>
 
     <file>
-      <source>craftbook-vehicles/target/craftbook-vehicles-0.0.0-SNAPSHOT.jar</source>
+      <source>../craftbook-vehicles/target/craftbook-vehicles-0.0.0-SNAPSHOT.jar</source>
       <destName>CraftBookVehicles.jar</destName>
       <outputDirectory>/</outputDirectory>
       <filtered>false</filtered>
     </file>
--->
+
     <file>
-      <source>README.txt</source>
+      <source>../README.txt</source>
       <outputDirectory>/</outputDirectory>
       <filtered>true</filtered>
     </file>
 
   </files>
-<!--
+
   <fileSets>
     <fileSet>
       <includes>
-        <include>LICENSE.txt</include>
-        <include>NOTICE.txt</include>
-        <include>PERLSTONE-v1.0.txt</include>
-        <include>CHANGELOG.txt</include>
+        <include>../LICENSE.txt</include>
+        <include>../NOTICE.txt</include>
+        <include>../PERLSTONE-v1.0.txt</include>
+        <include>../CHANGELOG.txt</include>
       </includes>
     </fileSet>
-  </fileSets>-->
+  </fileSets>
 </assembly>
