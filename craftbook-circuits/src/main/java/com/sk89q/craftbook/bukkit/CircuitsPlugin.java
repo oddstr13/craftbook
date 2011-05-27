@@ -110,6 +110,7 @@ public class CircuitsPlugin extends BaseBukkitPlugin {
         icManager.register("MC1201", new ItemDispenser.Factory(server, true), familySISO);  
         icManager.register("MC1207", new FlexibleSetBlock.Factory(server), familySISO);  // REQ PERM
         //Missing: 1202 (replaced by dispenser?)                                                // REQ PERM
+        icManager.register("MC1203", new LightningSummon.Factory(server, true), familySISO);  // REQ PERM
         //Missing: 1205                                                                         // REQ PERM
         //Missing: 1206                                                                         // REQ PERM
         icManager.register("MC1230", new DaySensor.Factory(server, true), familySISO);
@@ -152,6 +153,8 @@ public class CircuitsPlugin extends BaseBukkitPlugin {
         icManager.register("MC0111", new WirelessReceiverST.Factory(server), familySISO);
         icManager.register("MC0260", new WaterSensorST.Factory(server), familySISO);
         icManager.register("MC0261", new LavaSensorST.Factory(server), familySISO);
+        icManager.register("MC0420", new Clock.Factory(server), familySISO);
+        icManager.register("MC0421", new Monostable.Factory(server), familySISO);
         
         //Missing: 0020
 	    //Missing: 0230     

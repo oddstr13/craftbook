@@ -16,60 +16,62 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-package com.sk89q.craftbook.gates.logic;
+package com.sk89q.craftbook.gates.world;
+
+import org.bukkit.Location;
+import org.bukkit.Server;
+import org.bukkit.block.Sign;
 
 import com.sk89q.craftbook.ic.AbstractIC;
 import com.sk89q.craftbook.ic.AbstractICFactory;
 import com.sk89q.craftbook.ic.ChipState;
 import com.sk89q.craftbook.ic.IC;
-import org.bukkit.Server;
-import org.bukkit.block.Sign;
+import com.sk89q.craftbook.ic.RestrictedIC;
+import com.sk89q.craftbook.util.SignUtil;
 
-public class AndGate extends AbstractIC {
 
-    public AndGate(Server server, Sign sign) {
+
+public class LightningSummon extends AbstractIC {
+
+    protected boolean risingEdge;
+
+    public LightningSummon(Server server, Sign sign, boolean risingEdge) {
         super(server, sign);
+        this.risingEdge = risingEdge;
     }
 
     @Override
     public String getTitle() {
-        return "And Gate";
+        return "Zeus Bolt";
     }
 
     @Override
     public String getSignTitle() {
-        return "AND";
+        return "ZEUS BOLT";
     }
 
     @Override
     public void trigger(ChipState chip) {
-
-        int on = 0, valid = 0;
-        for (int i = 0; i < chip.getInputCount(); i++) {
-        	
-        	if (chip.isValid(i))
-            {
-        		valid++;
-
-	            if (chip.getInput(i))
-	                on++;
-            }
+        if (risingEdge && chip.getInput(0) || (!risingEdge && !chip.getInput(0))) {
+            Location loc = SignUtil.getBackBlock(getSign().getBlock()).getLocation();
+            getSign().getWorld().strikeLightning(loc);
         }
-
-        // Condition; all valid must be ON, at least one valid.
-        chip.setOutput(0, (on == valid && valid > 0));
     }
 
-    public static class Factory extends AbstractICFactory {
+    public static class Factory extends AbstractICFactory implements RestrictedIC {
 
-        public Factory(Server server) {
+        protected boolean risingEdge;
+
+        public Factory(Server server, boolean risingEdge) {
             super(server);
+            this.risingEdge = risingEdge;
         }
 
         @Override
         public IC create(Sign sign) {
-            return new AndGate(getServer(), sign);
+            return new LightningSummon(getServer(), sign, risingEdge);
         }
     }
-
 }
+
+
