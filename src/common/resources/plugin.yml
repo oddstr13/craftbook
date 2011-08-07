@@ -1,4 +1,0 @@
-name: CraftBookCommon
-main: com.sk89q.craftbook.bukkit.CraftBookPlugin
-version: __VERSION_MACRO__
-commands:
