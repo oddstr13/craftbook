@@ -113,7 +113,7 @@ public class VehiclesPlugin extends BaseBukkitPlugin {
             // Ignore events not relating to minecrarts.
             if (event.getEntered() instanceof Player) {
                 Player ply = (Player)event.getEntered();
-                System.out.println("[DEBUG] " + ply.getName() + " Entered Vehicle at " + event.getVehicle().getLocation().toString() +" "+ event.getVehicle().getLocation().getBlock().getRelative(BlockFace.DOWN).getType().toString());
+                //System.out.println("[DEBUG] " + ply.getName() + " Entered Vehicle at " + event.getVehicle().getLocation().toString() +" "+ event.getVehicle().getLocation().getBlock().getRelative(BlockFace.DOWN).getType().toString());
             }
 
             if (!(event.getVehicle() instanceof Minecart)) return;

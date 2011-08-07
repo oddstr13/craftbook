@@ -62,7 +62,7 @@ public class MinecartManager {
     public void impact(VehicleEnterEvent event) {
         try {
             CartMechanismBlocks cmb = CartMechanismBlocks.findByRail(event.getVehicle().getLocation().getBlock());
-            System.out.println("[DEBUG] impact(VehicleEnterEvent event)");
+            //System.out.println("[DEBUG] impact(VehicleEnterEvent event)");
             CartMechanism thingy = mechanisms.get(cmb.base.getType());
             if (thingy != null) {
                 thingy.enter((Minecart)event.getVehicle(), cmb, (LivingEntity)event.getEntered());
