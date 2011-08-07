@@ -93,6 +93,10 @@ public class CartDispenser extends CartMechanism {
             if (!inv.contains(ItemType.MINECART.getID())) return;
             inv.removeItem(new ItemStack(ItemType.MINECART.getID(), 1));
         }
-        blocks.rail.getWorld().spawn(BukkitUtil.center(blocks.rail.getLocation()), Minecart.class);
+        Minecart cart = (Minecart)blocks.rail.getWorld().spawn(BukkitUtil.center(blocks.rail.getLocation()), Minecart.class);
+        String line3 = blocks.getSign().getLines()[3];
+        if (line3.toUpperCase().startsWith("L:")) {
+            CartUtils.launch(cart, line3.toUpperCase().split(":")[1]);
+        }
     }
 }

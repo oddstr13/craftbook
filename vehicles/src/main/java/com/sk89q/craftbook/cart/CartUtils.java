@@ -14,4 +14,15 @@ public abstract class CartUtils {
     public static void stop(Minecart cart) {
         cart.setVelocity(new Vector(0,0,0));
     }
+    public static void launch(Minecart cart, String dir) {
+        if (dir.equalsIgnoreCase("N")) {
+            cart.setVelocity(new Vector(-1,0,0));
+        } else if (dir.equalsIgnoreCase("E")) {
+            cart.setVelocity(new Vector(0,0,-1));
+        } else if (dir.equalsIgnoreCase("S")) {
+            cart.setVelocity(new Vector(1,0,0));
+        } else if (dir.equalsIgnoreCase("W")) {
+            cart.setVelocity(new Vector(0,0,1));
+        }
+    }
 }
