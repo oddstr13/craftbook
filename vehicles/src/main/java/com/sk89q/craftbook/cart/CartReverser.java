@@ -41,4 +41,5 @@ public class CartReverser extends CartMechanism {
             }
         }
     }
+    public void enter(Minecart cart, CartMechanismBlocks blocks, LivingEntity ent) {}
 }

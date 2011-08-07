@@ -62,6 +62,7 @@ public class VehiclesPlugin extends BaseBukkitPlugin {
         getServer().getPluginManager().registerEvent(Event.Type.VEHICLE_CREATE,  lvehicle, Priority.Normal, this);
         getServer().getPluginManager().registerEvent(Event.Type.VEHICLE_MOVE,    lvehicle, Priority.Normal, this);
         getServer().getPluginManager().registerEvent(Event.Type.REDSTONE_CHANGE, lblock,   Priority.Normal, this);
+        getServer().getPluginManager().registerEvent(Event.Type.VEHICLE_ENTER,   lvehicle, Priority.Normal, this);
     }
     
     public VehiclesConfiguration getLocalConfiguration() {
@@ -83,7 +84,6 @@ public class VehiclesPlugin extends BaseBukkitPlugin {
         @Override
         public void onVehicleCreate(VehicleCreateEvent event) {
             Vehicle vehicle = event.getVehicle();
-            
             // Ignore events not relating to minecrarts.
             if (!(vehicle instanceof Minecart)) return;
             
@@ -104,6 +104,23 @@ public class VehiclesPlugin extends BaseBukkitPlugin {
             
             cartman.impact(event);
         }
+
+        /**
+         * Called when entity enters an vehicle.
+         */
+        @Override
+        public void onVehicleEnter(VehicleEnterEvent event) {
+            // Ignore events not relating to minecrarts.
+            if (event.getEntered() instanceof Player) {
+                Player ply = (Player)event.getEntered();
+                System.out.println("[DEBUG] " + ply.getName() + " Entered Vehicle at " + event.getVehicle().getLocation().toString() +" "+ event.getVehicle().getLocation().getBlock().getRelative(BlockFace.DOWN).getType().toString());
+            }
+
+            if (!(event.getVehicle() instanceof Minecart)) return;
+
+            cartman.impact(event);
+        }
+
     }
     
     

@@ -99,4 +99,5 @@ public class CartDispenser extends CartMechanism {
             CartUtils.launch(cart, line3.toUpperCase().split(":")[1]);
         }
     }
+    public void enter(Minecart cart, CartMechanismBlocks blocks, LivingEntity ent) {}
 }

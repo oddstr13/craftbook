@@ -36,4 +36,5 @@ public class CartBooster extends CartMechanism {
         // go
         cart.setVelocity(newVelocity);
     }
+    public void enter(Minecart cart, CartMechanismBlocks blocks, LivingEntity ent) {}
 }

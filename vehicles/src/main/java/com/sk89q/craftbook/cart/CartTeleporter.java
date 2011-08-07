@@ -62,4 +62,5 @@ public class CartTeleporter extends CartMechanism {
             cart.remove();
         }
     }
+    public void enter(Minecart cart, CartMechanismBlocks blocks, LivingEntity ent) {}
 }

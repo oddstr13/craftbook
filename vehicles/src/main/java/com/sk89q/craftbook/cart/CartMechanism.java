@@ -39,6 +39,7 @@ public abstract class CartMechanism {
      *            brake-locking functionality.
      */
     public abstract void impact(Minecart cart, CartMechanismBlocks blocks, boolean minor);
+    public abstract void enter(Minecart cart, CartMechanismBlocks blocks, LivingEntity ent);
     
      
     

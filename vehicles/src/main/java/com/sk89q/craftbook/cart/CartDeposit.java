@@ -134,4 +134,5 @@ public class CartDeposit extends CartMechanism {
             //System.out.println("deposit done. " + transferitems.size() + " items wouldn't fit back.");
         }
     }
+    public void enter(Minecart cart, CartMechanismBlocks blocks, LivingEntity ent) {}
 }

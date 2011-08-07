@@ -41,6 +41,25 @@ public class CartStation extends CartMechanism {
         }
     }
     
+    public void enter(Minecart cart, CartMechanismBlocks blocks, LivingEntity ent) {
+        System.out.println("[DEBUG] enter(Minecart cart, CartMechanismBlocks blocks, LivingEntity ent)");
+        String line3 = blocks.getSign().getLines()[3];
+        System.out.println("[DEBUG] '" + line3 + "'");
+        if (line3.equalsIgnoreCase("AutoLaunch")) {
+            Location l = cart.getLocation();
+            BlockFace face = SignUtil.getFacing(blocks.sign);
+            System.out.println("[DEBUG] l: '" + l.toString() + "  face: " + face.toString());
+            System.out.println("[DEBUG] " + face.getModX() + " " + face.getModY() + " " + face.getModZ());
+            l = l.getBlock().getRelative(face.getModX(), face.getModY(), face.getModZ()).getLocation();
+            l.setX(l.getX()+0.5);
+            l.setY(l.getY()+0.5);
+            l.setZ(l.getZ()+0.5);
+            System.out.println("[DEBUG] l: '" + l.toString());
+            cart.teleport(l);
+            launch(cart, blocks.sign);
+        }
+    }
+
     private void launch(Minecart cart, Block director) {
         cart.setVelocity(FUUUUUUUUUUUUUUUUU(SignUtil.getFacing(director)));
     }

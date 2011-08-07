@@ -59,6 +59,20 @@ public class MinecartManager {
         plugin.getServer().getScheduler().scheduleSyncDelayedTask(plugin, new DelayedImpact(event));
     }
 
+    public void impact(VehicleEnterEvent event) {
+        try {
+            CartMechanismBlocks cmb = CartMechanismBlocks.findByRail(event.getVehicle().getLocation().getBlock());
+            System.out.println("[DEBUG] impact(VehicleEnterEvent event)");
+            CartMechanism thingy = mechanisms.get(cmb.base.getType());
+            if (thingy != null) {
+                thingy.enter((Minecart)event.getVehicle(), cmb, (LivingEntity)event.getEntered());
+            }
+        } catch (InvalidMechanismException e) {
+            /* okay, so there's nothing interesting to see here.  carry on then, eh? */
+            return;
+        }
+    }
+
     /**
      * Bukkit reports redstone events before updating the status of the relevant
      * blocks... which had the rather odd effect of causing only input wires

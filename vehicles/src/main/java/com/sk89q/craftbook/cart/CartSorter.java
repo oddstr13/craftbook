@@ -157,4 +157,5 @@ public class CartSorter extends CartMechanism {
 
         return false;
     }
+    public void enter(Minecart cart, CartMechanismBlocks blocks, LivingEntity ent) {}
 }
